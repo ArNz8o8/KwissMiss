@@ -73,7 +73,7 @@ proc printReminder {reminderId {fire "false"}} {
     set what [lindex $reminder 4]
 
     if {$fire} {
-	putserv "PRIVMSG $chan :$who: --HERINNERING-- $what"
+	putserv "PRIVMSG $chan :$who --HERINNERING-- $what"
     } else {
 	putserv "PRIVMSG $chan : Voor $who op $when: $what"
     }
@@ -112,7 +112,7 @@ proc pub:newReminder {nick host handle chan text} {
     set reminders($id) $new
     saveReminders
 
-    putserv "PRIVMSG $chan :$who: Nieuwe herinnering: $when: \"$what\""
+    putserv "PRIVMSG $chan :Nieuwe herinnering ingesteld voor $who"
 }
 
 proc pub:getReminders {nick host handle chan text} {
